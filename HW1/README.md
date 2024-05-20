@@ -81,9 +81,10 @@ qiime tools export --input-path "denoise_out/deblur-stats.qza" --output-path "de
 deblur_stats="denoise_out/stats.csv"
 ```
 Вот как выглядит файл статистики .csv:
-| Sample ID	| Reads Raw	| Unique Reads Derep | Reads Derep |	Unique Reads Deblur |	Reads Deblur |	Unique Reads Hit Artifact |	Reads Hit Artifact	| Unique Reads Chimeric |	Reads Chimeric |	Unique Reads Hit Reference |	Reads Hit Reference |	Unique Reads | Missed Reference |	Reads Missed Reference |
+
+| Sample ID	| Reads Raw	| Unique Reads Derep | Reads Derep |	Unique Reads Deblur |	Reads Deblur |	Unique Reads Hit Artifact |	Reads Hit Artifact	| Unique Reads Chimeric |	Reads Chimeric |	Unique Reads Hit Reference |	Reads Hit Reference |	Unique Reads Missed Reference |	Reads Missed Reference |
 | -------- | ------- |-------- | ------- |-------- | ------- |-------- | ------- |-------- | ------- |-------- | ------- |-------- | ------- |
-| SRR28725319 | 59458 | 3279 | 38380 | 166 | 21818 | 16 | 32 | 62| 137 | 49 | 21552 | 0 | 0 |
+| SRR28725319 | 59458 | 3279 | 38380 | 166 | 21818 | 16 | 32 | 62 | 137 | 49 | 21552 | 0 | 0 |
 | SRR28725320 | 77484 | 3946 | 52165 | 210 | 30711 | 39 | 80 | 71 | 217 | 60 | 30326 | 0 | 0 |
 | SRR28725322 | 67402 | 3603 | 37543 | 323 | 22853 | 29 | 59 | 69 | 123 | 156 | 22511 | 0 | 0 |
 | SRR28725323 | 82689 | 4692 | 49913 | 404 | 29543 | 29 | 58 | 105 | 196 | 147 | 29047 | 0 | 0 |
