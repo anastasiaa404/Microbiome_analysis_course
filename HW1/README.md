@@ -19,6 +19,9 @@ conda activate qiime2-2023.2
 qiime --help
 ```
 ## 2. Идентификация переменных
+- Загружаем данные с SRA.NCBI (в поиске вводим: gut human microbiome, в фильтрах можно указать Illumina, single).
+- Данные с которыми будем работать:
+SRR28725319.fastq  SRR28725320.fastq  SRR28725322.fastq  SRR28725323.fastq  SRR28725324.fastq
 ```
 input_reads=/home/anastasia/microbiome/qiime_test
 manifest=/home/anastasia/microbiome/qiime_test/manifest.tmp
