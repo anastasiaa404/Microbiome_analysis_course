@@ -108,3 +108,19 @@ qiime feature-table rarefy --i-table "denoise_out/deblur-table.qza" --p-sampling
 qiime diversity alpha --i-table "rarefied/otus_rar_10K.qza" --p-metric "chao1" --o-alpha-diversity "rarefied/alpha_chao.qza"
 qiime tools export --input-path "rarefied/alpha_chao.qza" --output-path "rarefied/alpha_chao.tsv" --output-format "AlphaDiversityFormat"
 ```
+Создание удобочитаемых таблиц таксонов
+```
+mkdir otus
+qiime tools export --input-path "rarefied/otus_rar_10K.qza" --output-path "otus"
+
+Exported rarefied/otus_rar_10K.qza as BIOMV210DirFmt to directory otus
+Рассмотрим представление на видовом уровне (7):
+```
+qiime taxa collapse --i-table "rarefied/otus_rar_10K.qza" --i-taxonomy "taxonomy/taxonomy.qza" --p-level 7 --o-collapsed-table "otus/collapse_7.qza"
+qiime tools export --input-path "otus/collapse_7.qza" --output-path "otus/summarized_taxa"
+biom convert -i "otus/summarized_taxa/feature-table.biom" -o "otus/summarized_taxa/otu_table_L7.txt" --to-tsv
+```
+Затем мы можем получить файл .qzv и использовать веб-сайт для визуализации таксономии.файл qza.
+```
+qiime taxa barplot --i-table rarefied/otus_rar_10K.qza --i-taxonomy taxonomy/taxonomy.qza --o-visualization taxonomy/taxa-bar-plots.qzv 
+```
