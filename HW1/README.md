@@ -91,4 +91,20 @@ deblur_stats="denoise_out/stats.csv"
 | SRR28725324 | 61422 | 3438 | 34790 | 293 | 21231 | 27 | 54 | 55 | 96 | 39 | 20950 | 0 | 0 |
 
 ## 5. Классификация репрезентативных последовательностей
-
+```
+# CLASSIFY REPRESENTATIVE SEQUENCES WITH --p-confidence {0.94}
+mkdir taxonomy
+qiime feature-classifier classify-sklearn --i-classifier $classifier --i-reads $rep_seqs_qza --o-classification "taxonomy/taxonomy.qza" --p-confidence 0.94
+```
+```
+# EXPORT OUTPUT TABLE
+qiime tools export --input-path "taxonomy/taxonomy.qza" --output-path "taxonomy"
+```
+## 6. Rarefy and alpha-diversity
+```
+#RAREFY and ALPHA
+mkdir rarefied
+qiime feature-table rarefy --i-table "denoise_out/deblur-table.qza" --p-sampling-depth 10000 --o-rarefied-table "rarefied/otus_rar_10K.qza"
+qiime diversity alpha --i-table "rarefied/otus_rar_10K.qza" --p-metric "chao1" --o-alpha-diversity "rarefied/alpha_chao.qza"
+qiime tools export --input-path "rarefied/alpha_chao.qza" --output-path "rarefied/alpha_chao.tsv" --output-format "AlphaDiversityFormat"
+```
